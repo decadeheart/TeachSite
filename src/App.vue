@@ -40,20 +40,20 @@
           <ul>
             <li class="li-head">产品</li>
             <li class="li-item"> <router-link to="/books">视频</router-link></li>
-            <li class="li-item"><router-link to="/books">书籍</router-link></li>
+            <li class="li-item"><router-link to="/vedios">书籍</router-link></li>
           </ul>
         </div>
         <div class="col-sm-3">
           <ul>
             <li class="li-head">关于</li>
-            <li class="li-item"> <router-link to="/books">了解我们</router-link></li>
-            <li class="li-item"><router-link to="/books">加入我们</router-link></li>
+            <li class="li-item"> <router-link to="/about">了解我们</router-link></li>
+            <li class="li-item"><router-link to="/about">加入我们</router-link></li>
           </ul>
         </div>
         <div class="col-sm-3">
           <ul>
             <li class="li-head">服务支持</li>
-            <li class="li-item"> <router-link to="/books">技术支持</router-link></li>
+            <li class="li-item"> <a href="www.decadexun.cn">技术支持</a></li>
             <li class="li-item"><router-link to="/books">售后服务</router-link></li>
           </ul>
         </div>
