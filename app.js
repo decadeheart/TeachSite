@@ -30,7 +30,7 @@ MongoClient.connect(mongoUrl, function (err, db) {
 app.post('/create', function(req, res, next) {
   //接收前端发送的字段
 var mission = req.body;
-//选择一个表my_mission 此时没有没关系，也会自动创建
+//选择一个表book 此时没有没关系，也会自动创建
 var collection = _db.collection('my_mission');
   //如果我们需要的字段不存在，返回前端信息
 if(!mission.comment || !mission.totalTime || !mission.date) {
@@ -87,6 +87,105 @@ app.get('/time-entries', function(req, res, next) {
 app.delete('/delete/:id', function (req, res, next) {
   var _id = req.params.id;
   var collection = _db.collection('my_mission');
+  console.log(_id)
+  //使用mongodb的唯一ObjectId字段查找出对应id删除记录
+  collection.remove({_id: new ObjectID(_id)} ,function (err, result) {
+    if(err) {
+      console.error(err);
+      res.status(500).end();
+    } else {
+      res.send({errcode:0,errmsg:"ok"});
+    }
+  });
+});
+//增加书籍
+app.post('/createBook', function(req, res, next) {
+  //接收前端发送的字段
+var mission = req.body;
+//选择一个表book 此时没有没关系，也会自动创建
+var collection = _db.collection('book');
+  //如果我们需要的字段不存在，返回前端信息
+if(!mission.name || !mission.teacher || !mission.introduction || !mission.shopUrl || !mission.pictureUrl) {
+  res.send({errcode:-1,errmsg:"params missed"});
+  return;
+}
+  //如果存在就插入数据库，返回OK
+collection.insert({name: mission.name, teacher: mission.teacher,introduction: mission.introduction,shopUrl: mission.shopUrl,pictureUrl: mission.pictureUrl,}, function (err, ret) {
+  if(err) {
+    console.error(err);
+    res.status(500).end();
+  } else {
+    res.send({errcode:0,errmsg:"ok"});
+  }
+});
+});
+
+//获取书籍列表
+app.get('/book-list', function(req, res, next) {
+  var collection = _db.collection('book');
+  collection.find({}).toArray(function (err, ret) {
+    if(err) {
+      console.error(err);
+      return;
+    }
+    res.json(ret);
+  });
+});
+//删除书籍
+app.delete('/deleteBook/:id', function (req, res, next) {
+  var _id = req.params.id;
+  var collection = _db.collection('book');
+  console.log(_id)
+  //使用mongodb的唯一ObjectId字段查找出对应id删除记录
+  collection.remove({_id: new ObjectID(_id)} ,function (err, result) {
+    if(err) {
+      console.error(err);
+      res.status(500).end();
+    } else {
+      res.send({errcode:0,errmsg:"ok"});
+    }
+  });
+});
+
+
+//增加视频
+app.post('/createVedio', function(req, res, next) {
+  //接收前端发送的字段
+var mission = req.body;
+//选择一个表book 此时没有没关系，也会自动创建
+var collection = _db.collection('vedio');
+  //如果我们需要的字段不存在，返回前端信息
+if(!mission.name || !mission.teacher || !mission.introduction || !mission.shopUrl || !mission.pictureUrl) {
+  res.send({errcode:-1,errmsg:"params missed"});
+  return;
+}
+  //如果存在就插入数据库，返回OK
+collection.insert({name: mission.name, teacher: mission.teacher,introduction: mission.introduction,shopUrl: mission.shopUrl,pictureUrl: mission.pictureUrl,}, function (err, ret) {
+  if(err) {
+    console.error(err);
+    res.status(500).end();
+  } else {
+    res.send({errcode:0,errmsg:"ok"});
+  }
+});
+});
+
+//获取视频列表
+app.get('/vedio-list', function(req, res, next) {
+  var collection = _db.collection('vedio');
+  collection.find({}).toArray(function (err, ret) {
+    if(err) {
+      console.error(err);
+      return;
+    }
+    res.json(ret);
+  });
+});
+
+//删除视频
+app.delete('/deleteVedio/:id', function (req, res, next) {
+  var _id = req.params.id;
+  var collection = _db.collection('vedio');
   console.log(_id)
   //使用mongodb的唯一ObjectId字段查找出对应id删除记录
   collection.remove({_id: new ObjectID(_id)} ,function (err, result) {
