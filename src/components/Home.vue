@@ -1,8 +1,5 @@
 <template>
   <div>
-      <div class="col-sm-3">
-        <sidebar></sidebar>
-      </div>
       <div class="col-sm-9">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
@@ -44,6 +41,9 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
+      </div>
+      <div class="col-sm-3">
+        <sidebar></sidebar>
       </div>
   </div>
 </template>

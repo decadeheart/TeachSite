@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div class="col-sm-3">
-        <sidebar></sidebar>
-    </div>
     <div class="col-sm-9">
       <div>
         <i class="glyphicon glyphicon-list-alt"></i>
@@ -39,6 +36,9 @@
 
         </div>
       </div>
+    </div>
+    <div class="col-sm-3">
+        <sidebar></sidebar>
     </div>
   </div>
 </template>
