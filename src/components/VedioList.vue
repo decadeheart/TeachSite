@@ -56,7 +56,7 @@ import Sidebar from "./Sidebar.vue"
         },
         created(){
           document.title="视频列表"
-          this.$http.get('http://localhost:8888/vedio-list')
+          this.$http.get('http://119.29.208.124:8888/vedio-list')
             .then(function(ret) {
               this.vedios = ret.data;
               console.log(ret.data)

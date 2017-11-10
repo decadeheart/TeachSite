@@ -77,7 +77,7 @@
         },
         methods:{
           save() {
-            this.$http.post('http://localhost:8888/createVedio',{
+            this.$http.post('http://119.29.208.124:8888/createVedio',{
               name : this.vedio.name,
               teacher : this.vedio.teacher,
               shopUrl : this.vedio.shopUrl,

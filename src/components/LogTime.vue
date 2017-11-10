@@ -52,7 +52,7 @@
         },
         methods:{
           save() {
-            this.$http.post('http://localhost:8888/create',{
+            this.$http.post('http://119.29.208.124:8888/create',{
               date : this.plan.date,
               totalTime : this.plan.totalTime,
               comment : this.plan.comment

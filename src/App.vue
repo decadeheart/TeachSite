@@ -78,7 +78,7 @@ export default {
     }
   },
   mounted() {
-      this.$http.get('http://localhost:8888/time')
+      this.$http.get('http://119.29.208.124:8888/time')
         .then(function(ret) {
           this.time = ret.data.time;
           console.log(this.time)

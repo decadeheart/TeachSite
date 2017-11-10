@@ -38,7 +38,7 @@ export default {
   },
   created(){
     document.title="书籍列表"
-    this.$http.get('http://localhost:8888/book-list')
+    this.$http.get('http://119.29.208.124:8888/book-list')
       .then(function(ret) {
         this.books = ret.data;
         console.log(ret.data)
@@ -52,7 +52,7 @@ export default {
       let index = this.books.indexOf(book)
       let _id = this.books[index]._id
       if (window.confirm('确认删除?')) {
-        this.$http.delete('http://localhost:8888/deleteBook/' + _id)
+        this.$http.delete('http://119.29.208.124:8888/deleteBook/' + _id)
           .then(function(ret) {
             console.log(ret);
           })

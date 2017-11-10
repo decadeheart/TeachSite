@@ -38,7 +38,7 @@ export default {
   },
   created(){
     document.title="视频列表"
-    this.$http.get('http://localhost:8888/vedio-list')
+    this.$http.get('http://119.29.208.124:8888/vedio-list')
       .then(function(ret) {
         this.vedios = ret.data;
         console.log(ret.data)
@@ -52,7 +52,7 @@ export default {
       let index = this.vedios.indexOf(vedio)
       let _id = this.vedios[index]._id
       if (window.confirm('确认删除?')) {
-        this.$http.delete('http://localhost:8888/deleteVedio/' + _id)
+        this.$http.delete('http://119.29.208.124:8888/deleteVedio/' + _id)
           .then(function(ret) {
             console.log(ret);
           })

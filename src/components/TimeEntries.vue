@@ -69,7 +69,7 @@
           }
         },
         created(){
-          this.$http.get('http://localhost:8888/time-entries')
+          this.$http.get('http://119.29.208.124:8888/time-entries')
             .then(function(ret) {
               this.plans = ret.data;
               console.log(ret.data)
@@ -84,7 +84,7 @@
               let index = this.plans.indexOf(plan)
               let _id = this.plans[index]._id
               if (window.confirm('确认删除?')) {
-                this.$http.delete('http://localhost:8888/delete/' + _id)
+                this.$http.delete('http://119.29.208.124:8888/delete/' + _id)
                   .then(function(ret) {
                     console.log(ret);
                   })
